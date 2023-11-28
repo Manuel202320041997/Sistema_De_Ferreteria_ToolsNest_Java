@@ -3,5 +3,26 @@
   <groupId>com.proyFerreteria</groupId>
   <artifactId>ProyectoFerreteria</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>ProyectoFerreteria</name>
+  <name>ProyectoFerreteria</name>  
+  <dependencies>
+    <!-- JasperReports -->
+    <dependency>
+        <groupId>net.sf.jasperreports</groupId>
+        <artifactId>jasperreports</artifactId>
+        <version>6.20.6</version>
+        <exclusions>
+            <exclusion>
+                <groupId>net.sf.jasperreports</groupId>
+                <artifactId>jasperreports</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+
+    <!-- Commons Logging -->
+    <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>1.2</version> <!-- Coloca aquí la versión específica que estás utilizando -->
+    </dependency>
+</dependencies>
 </project>

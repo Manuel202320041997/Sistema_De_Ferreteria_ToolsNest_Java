@@ -37,5 +37,40 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Librerias_Java/mysql-connector-j-8.0.31.jar"/>
+	<classpathentry kind="src" path="target/generated-sources/annotations">
+		<attributes>
+			<attribute name="ignore_optional_problems" value="true"/>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="m2e-apt" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="target/generated-test-sources/test-annotations">
+		<attributes>
+			<attribute name="ignore_optional_problems" value="true"/>
+			<attribute name="test" value="true"/>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="m2e-apt" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Librerias_Java/javafx-controls-21-ea+5.jar"/>
+	<classpathentry kind="lib" path="C:/Librerias_Java/jasperreports-6.20.6.jar"/>
+	<classpathentry kind="lib" path="C:/Librerias_Java/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas/lib/javax.activation-1.1.0.v201105071233.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas/lib/javax.ejb.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas/lib/javax.faces-api-2.0.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas/lib/javax-inject.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas/lib/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Librerias_Java/commons-codec-1.6.jar"/>
+	<classpathentry kind="lib" path="C:/Librerias_Java/commons-codec-1.6-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Librerias_Java/commons-codec-1.6-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Librerias_Java/commons-codec-1.6-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vemto/Desktop/ENTREGA HOY/itextpdf-5.5.13.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vemto/Desktop/ENTREGA HOY/itext-pdfa-5.5.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vemto/Desktop/ENTREGA HOY/poi-3.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vemto/Desktop/ENTREGA HOY/poi-ooxml-3.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vemto/Desktop/ENTREGA HOY/poi-ooxml-schemas-3.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vemto/Desktop/ENTREGA HOY/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

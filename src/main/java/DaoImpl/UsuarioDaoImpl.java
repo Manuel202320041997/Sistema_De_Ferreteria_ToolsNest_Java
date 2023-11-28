@@ -58,26 +58,132 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 	@Override
 	public void agregarUsuario(Usuario usuario) {
+		try {
+			String consulta = "INSERT INTO usuario (dni_empleado, nombre, clave, rol) VALUES (?, ?, ?, ?)";
+			statement = conexion.prepareStatement(consulta);
+	        
+	        statement.setInt(1, usuario.getDni());
+	        statement.setString(2, usuario.getNombre());	        
+	        statement.setString(3, usuario.getClave());	
+	        statement.setInt(4, usuario.getId_rol());
+	        statement.executeUpdate();
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
 		
-		
+	}
+	
+	public boolean verificarSiExisteDni(int dniUsuario) {
+	    try {
+	        String consulta = "SELECT COUNT(*) FROM empleado WHERE dni = ?";
+	        statement = conexion.prepareStatement(consulta);
+	        statement.setInt(1, dniUsuario);
+
+	        ResultSet resultSet = statement.executeQuery();
+	        resultSet.next();
+
+	        return resultSet.getInt(1) > 0;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return false; 
+	    }
 	}
 
 	@Override
 	public void eliminarUsuario(int idUsuario) {
-		
+		try {
+			String consulta = "UPDATE usuario SET estado = 0 WHERE id = ?";
+			statement = conexion.prepareStatement(consulta);
+			statement.setInt(1, idUsuario);
+			
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void editarUsuario(Usuario usuario) {
+		try {
+			String consulta = "UPDATE usuario SET nombre = ?, clave = ?, rol = ? WHERE id = ?";
+			statement = conexion.prepareStatement(consulta);
+			
+			statement.setString(1, usuario.getNombre());
+			statement.setString(2, usuario.getClave());
+			statement.setInt(3, usuario.getId_rol());
+			statement.setInt(4, usuario.getId());
+			
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
-	public void editarUsuario(int idUsuario) {
+	public Usuario buscarUsuarioPorDni(int dniUsuario) {
+		Usuario usuario = null;
 		
+		try {
+			String consulta = "SELECT * FROM usuario WHERE dni_empleado = ?";
+			statement = conexion.prepareStatement(consulta);
+			statement.setInt(1, dniUsuario);
+			ResultSet resultSet = statement.executeQuery();
+			
+			if(resultSet.next()) {
+				int id = resultSet.getInt("id");
+				int dni = resultSet.getInt("dni_empleado");
+				String nombre = resultSet.getString("nombre");
+				String clave = resultSet.getString("clave");
+				int rol = resultSet.getInt("rol");
+				
+				usuario = new Usuario();
+				
+				usuario.setId(id);
+				usuario.setDni(dni);
+				usuario.setNombre(nombre);
+				usuario.setClave(clave);
+				usuario.setId_rol(rol);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return usuario;
+	}
+
+	@Override
+	public void CambiarEstadoInactivo(int id) {
+		try {
+			String consulta = "UPDATE usuario SET estado = 0 WHERE id = ?";
+			statement = conexion.prepareStatement(consulta);
+			statement.setInt(1, id);
+			
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
-	public Usuario buscarUsuarioPorId(int idUsuario) {
+	public void CambiarEstadoActivo(int id) {
+		try {
+			String consulta = "UPDATE usuario SET estado = 1 WHERE id = ?";
+			statement = conexion.prepareStatement(consulta);
+			statement.setInt(1, id);
+			
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
-		return null;
+		
 	}
 
 }
