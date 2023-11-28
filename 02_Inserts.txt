@@ -1,0 +1,152 @@
+-- Inserts
+
+INSERT INTO rol(descripcion) VALUES 
+('Administrador'),
+('Empleado');
+
+INSERT INTO menu(descripcion,id_rol) VALUES
+('Usuario',1),
+('Compras',1),
+('Ventas',1),
+('Almacen',1),
+('Contabilidad',1),
+('R.R.H.H.',1),
+
+('Compras',2),
+('Ventas',2),
+('Almacen',2);
+
+INSERT INTO cargo(descripcion) VALUES
+('Gerente'),
+('Vendedor');
+
+INSERT INTO empleado(dni, nombres, correo, direccion, id_cargo) VALUES
+(78954126, 'Enzo Fabian Crisante', 'enzuky@gmail.com', 'Av. Venezuela Mz.Z Lte.2', 2),
+(15358589, 'Marco Antonio Solis', 'maquitos@gmail.com', 'Av. Venezuela Mz.Z Lte.2', 2),
+(78945612, 'Fabricio Marquez Rojas', 'micabrito@gmail.com', 'Las Cucardas Mz.E Lte.7', 2),
+(75252391, 'Manuel Barrios Manuyama', 'barrriosmanuel138@gmail.com', 'urb. El Álamo', 1),
+(79845632, 'Oscar Avilés Gonzales', 'oscarin174@gmail.com', 'Av Libertadores 145', 2);
+
+INSERT INTO usuario(dni_empleado,nombre,clave,rol) VALUES
+(75252391, 'Manuel', '123', 1),
+(79845632, 'Oscar', '456', 2);
+
+INSERT INTO categoria(descripcion) VALUES
+('Iluminacion'),
+('Herramientas');
+
+INSERT INTO subcategoria(descripcion,id_categoria) VALUES
+('Lamparas',1),
+('Herramientas Electricas',2);
+
+INSERT INTO marca(descripcion) VALUES
+('Phillips'),
+('Bosh');
+
+INSERT INTO producto(descripcion, id_marca, precio_compra, precio_venta, stock, id_subcategoria) VALUES
+('Linterna Recargable', 1, 30.00, 50.00, 1500, 1),
+('Lampara de Pie', 1, 100.00, 180.00, 1500, 1),
+('Taladro Percutor', 2, 350, 512, 800, 2);
+
+INSERT INTO cliente(nombres, telefono, direccion, correo, dni) VALUES
+('José Roberto Alcántara', '987654321', 'Av. Las Papayas Jugosas', 'joseanuelroto@gmail.com', '15748964'),
+('Marco Antonio Solis', '978421563', 'Urb. Grandes Melones', 'tucantantefavoritopkmz@gmail.com','48569712');
+
+
+INSERT INTO proveedor(razon_social, telefono, direccion, correo) VALUES
+('Aceros Arequipa', '945787450', 'Av. Pepelucho 487', 'acerosarequipa@acerosa.pe'),
+('ElectroLight', '974184677', 'Av. Las Chamas', 'eleclight@gmail.com');
+
+INSERT INTO modo_pago(descripcion) VALUES
+('Tarjeta'),
+('Efectivo');
+
+INSERT INTO contrato (id_empleado, horas_trabajadas, sueldo_mensual, gratificacion, liquidacion, cts) VALUES 
+(1, 160, 2000.00, 100.00, 300.00, 50.00);
+
+INSERT INTO compra(numero_compra, id_proveedor, total, id_modo_pago, id_empleado) VALUES
+('A000001', 1, 300.00, 1, 2),
+('A000002', 2, 700.00, 2, 2);
+
+INSERT INTO detalle_compra(id_compra, id_producto, cantidad, precio_compra) VALUES
+(1, 1, 3, 100),
+(2, 2, 2, 350);
+
+INSERT INTO venta(numero_venta, id_cliente, total, id_modo_pago, id_empleado) VALUES
+('A000001', 1, 360.00, 2, 2),
+('A000002', 2, 350.00, 1, 2);
+
+INSERT INTO detalle_venta(id_venta, id_producto, cantidad, precio_venta) VALUES
+(1, 1, 2, 180.00),
+(2, 2, 1, 350.00);
+
+INSERT INTO transportista(dni, nombres, placa_vehiculo, modelo_vehiculo, brevete) VALUES
+('78945104', 'Juan Martinez Soria', 'AZY784', 'Toyota Corolla', '874596824' ),
+('14874965', 'José de San Martin', 'BRA965', 'Honda Civic', '415879847');
+
+INSERT INTO guia(numero_guia, id_empleado) VALUES
+('A000001', 2),
+('A000002', 2),
+('A000003', 2);
+
+INSERT INTO guia_detalle(id_guia, id_producto, cantidad) VALUES
+(1, 1, 2),
+(2, 2, 1),
+(3, 1, 1);
+
+INSERT INTO guia_ingresos(id_guia, id_proveedor, id_transportista, observacion) VALUES
+(1, 1, 1, 'Productos en perfecto estado');
+
+INSERT INTO guia_remision(id_guia, punto_partida, punto_llegada, id_transportista) VALUES
+(2, 'Av. Naciones Unidas 485', 'Urb. El Santo Grial 789', 1);
+
+INSERT INTO guia_salidas(id_guia, motivo) VALUES
+(3, 'Venta');
+
+INSERT INTO empresa(ruc, razon_social, telefono, direccion, logo_login, logo_inicio) VALUES
+('20148976354', 'ToolsNest S.A.C.', '964879657', 'Av. Argentina Cdra. N° 784 - Las Malvinas', 'D:\Descargas\Recursos Sistema Ferreteria\herramientas-de-ferreteria grande.png', 'D:\Descargas\Recursos Sistema Ferreteria\herramientas-de-ferreteria-icono2.png' );
+
+UPDATE empresa SET logo_login = 'D:\\Descargas\\Recursos Sistema Ferreteria\\herramientas-de-ferreteria grande.png' WHERE ruc = '20148976354';
+UPDATE empresa SET logo_inicio = 'D:\\Descargas\\Recursos Sistema Ferreteria\\herramientas-de-ferreteria-icono2.png' WHERE ruc = '20148976354';
+
+SET SQL_SAFE_UPDATES = 0;
+
+INSERT INTO videos(nombre, descripcion, url_archivo, empresa_id) VALUES
+
+('Modulo Usuario', 'Uso Descriptivo del Modulo Usuario', 'C:\\Users\\Vemto\\Desktop\\VideosToolsNest\\moduloUsuario1.1.mp4', 1),
+('Modulo Compras', 'Uso Descriptivo del Modulo Compras', 'C:\\Users\\Vemto\\Desktop\\VideosToolsNest\\moduloCompras.mp4', 1),
+('Modulo Ventas', 'Uso Descriptivo del Modulo Ventas', 'C:\\Users\\Vemto\\Desktop\\VideosToolsNest\\moduloVentas.mp4', 1),
+('Modulo Almacen', 'Uso Descriptivo del Modulo Almacen', 'C:\\Users\\Vemto\\Desktop\\VideosToolsNest\\moduloAlmacen.mp4', 1),
+('Modulo RRHH', 'Uso Descriptivo del Modulo Usuario', 'C:\\Users\\Vemto\\Desktop\\VideosToolsNest\\moduloRRHH.mp4', 1);
+
+
+/*SELECT g.fecha_registro, g.numero_guia, gi.id_proveedor, gi.id_transportista, gi.observacion, g.motivo, g.id_empleado 
+FROM guia g 
+LEFT JOIN guia_ingresos gi ON g.id = gi.id_guia;*/
+
+-- use dbsistemaFerreteria
+-- SELECT * FROM usuario
+-- SELECT * FROM rol
+-- SELECT * FROM menu
+-- SELECT * FROM empleado
+-- SELECT * FROM contrato
+-- SELECT * FROM cargo
+-- SELECT * FROM cliente
+-- SELECT * FROM proveedor
+-- SELECT * FROM marca
+-- SELECT * FROM categoria
+-- SELECT * FROM subcategoria
+-- SELECT * FROM producto
+-- SELECT * FROM modo_pago
+-- SELECT * FROM compra
+-- SELECT * FROM detalle_compra
+-- SELECT * FROM venta
+-- SELECT * FROM detalle_venta
+-- SELECT * FROM transportista
+-- SELECT * FROM guia;
+-- SELECT * FROM guia_detalle;
+-- SELECT * FROM guia_ingresos
+-- SELECT * FROM guia_remision
+-- SELECT * FROM guia_salidas
+-- SELECT * FROM empresa
+-- SELECT * FROM videos
